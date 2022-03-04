@@ -1,8 +1,26 @@
 #include "../includes/philo.h"
 
-int main(int argc, char **argv)
+void *do_something(void *arg)
 {
-	(void)argc;
-	(void)argv;
-	printf("\x1b[36m[aaaaaaaa]\n\033[m");
+	(void)arg;
+
+	printf("do something\n");
+	sleep(3);
+	return (NULL);
+}
+
+int main(void)
+{
+	pthread_t thread;
+	void *retval;
+
+	// スレッドを作成
+	if (pthread_create(&thread, NULL, do_something, NULL) != 0)
+		// エラー処理
+		return (0);
+	// スレッドの終了方法
+	// 1. スレッドが終了するまで待つ
+	pthread_join(thread, &retval);
+	// 2. スレッドを待たない
+	pthread_detach(thread);
 }
