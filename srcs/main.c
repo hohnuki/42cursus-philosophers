@@ -22,8 +22,9 @@ int	main(int argc, char **argv)
 {
 	t_info	info;
 
-	info.argc = argc;
+	init_structure(&info);
+	info.argc = argc - 1;
 	info.argv = argv;
-
 	set_times(&info);
+	execute_mult_thread(&info);
 }
