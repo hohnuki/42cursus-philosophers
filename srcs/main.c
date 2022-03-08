@@ -8,11 +8,22 @@ static void	set_times(t_info *info)
 	info->time_to_sleep = philo_atoi(info->argv[4], info);
 }
 
+static void	init_structure(t_info *info)
+{
+	info->argc = 0;
+	info->argv = NULL;
+	info->num_of_philosophers = 0;
+	info->time_to_die = 0;
+	info->time_to_eat = 0;
+	info->time_to_sleep = 0;
+}
+
 int	main(int argc, char **argv)
 {
 	t_info	info;
 
 	info.argc = argc;
 	info.argv = argv;
+
 	set_times(&info);
 }
