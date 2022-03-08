@@ -4,7 +4,8 @@ NAME = philo
 INCLUDES = includes
 SRCS_PATH = ./srcs/
 
-SRCS = $(SRCS_PATH)main.c
+SRCS = $(SRCS_PATH)main.c $(SRCS_PATH)philo_atoi.c $(SRCS_PATH)free.c \
+		$(SRCS_PATH)error_message.c
 OBJS = $(SRCS:.c=.o)
 
 all : $(NAME)
