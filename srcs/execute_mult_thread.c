@@ -1,13 +1,13 @@
 #include "../includes/philo.h"
 
-void	print_message(t_mutex *array)
+void	print_message(t_info *info)
 {
 	struct timeval	tv;
 	gettimeofday(&tv, NULL);
-	printf("%.13d %d has taken a fork\n", tv.tv_usec, array->index);
+	printf("%.13d %d has taken a fork\n", tv.tv_usec, info->current_index);
 }
 
-void *f(void *ptr)
+void	*f(void *ptr)
 {
 	print_message(ptr);
 	return (NULL);
@@ -24,9 +24,9 @@ void	execute_mult_thread(t_info *info)
 	while (i < info->num_of_philosophers)
 	{
 		info->array[i].fork_count = 0;
-		info->array[i].index = i;
+		info->current_index = i + 1;
 		pthread_mutex_init(&(info->array[i].mutex), NULL);
-		pthread_create(&(info->array[i].thread), NULL, &f, &(info->array[i]));
+		pthread_create(&(info->array[i].thread), NULL, &f, info);
 		pthread_join(info->array[i].thread, NULL);
 		i++;
 	}

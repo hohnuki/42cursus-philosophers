@@ -14,7 +14,6 @@ typedef struct s_mutex
 	pthread_mutex_t	mutex;
 	pthread_t		thread;
 	int				fork_count;
-	int 			index;
 }	t_mutex;
 
 typedef struct s_info
@@ -26,6 +25,8 @@ typedef struct s_info
 	int		time_to_eat;
 	int		time_to_sleep;
 	t_mutex	*array;
+	int		current_index;
+	bool	*fork_status;
 }	t_info;
 
 //philo_atoi.c
