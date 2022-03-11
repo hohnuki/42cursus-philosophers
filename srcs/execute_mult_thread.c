@@ -19,9 +19,6 @@ static void	pick_up_fork(t_info *info)
 	}
 	if (info->array[info->current_index].fork_count == 2)
 	{
-		struct timeval	tv;
-		gettimeofday(&tv, NULL);
-
 		printf("%.13d %d is eating\n", tv.tv_usec, info->current_index);
 		info->array[info->current_index].fork_count = 0;
 		usleep(info->time_to_eat);
