@@ -37,6 +37,9 @@ int	ft_isdigit(int c);
 //execute_mult_thread.c
 void	execute_mult_thread(t_info *info);
 
+//print_time.c
+size_t	print_time(t_info *info);
+
 //error_message.c
 void	error_message(t_info *info);
 

@@ -2,24 +2,21 @@
 
 static void	pick_up_fork(t_info *info)
 {
-	struct timeval	tv;
-	gettimeofday(&tv, NULL);
-
 	if (info->fork_status[info->current_index] == true)
 	{
-		printf("%.13d %d has taken a fork\n", tv.tv_usec, info->current_index);
+		printf("%zu %d has taken a fork\n", print_time(info), info->current_index);
 		info->fork_status[info->current_index] = false;
 		info->array[info->current_index].fork_count++;
 	}
 	if (info->fork_status[info->current_index + 1] == true)
 	{
-		printf("%.13d %d has taken a fork\n", tv.tv_usec, info->current_index);
+		printf("%zu %d has taken a fork\n", print_time(info), info->current_index);
 		info->fork_status[info->current_index + 1] = false;
 		info->array[info->current_index].fork_count++;
 	}
 	if (info->array[info->current_index].fork_count == 2)
 	{
-		printf("%.13d %d is eating\n", tv.tv_usec, info->current_index);
+		printf("%zu %d is eating\n", print_time(info), info->current_index);
 		info->array[info->current_index].fork_count = 0;
 		usleep(info->time_to_eat);
 	}
