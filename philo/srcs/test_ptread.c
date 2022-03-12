@@ -1,4 +1,4 @@
-#include "../includes/philo.h"
+#include "../../includes/philo.h"
 
 void *do_something(void *arg)
 {
