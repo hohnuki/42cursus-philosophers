@@ -1,12 +1,11 @@
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-NAME = philo
-INCLUDES = includes
-SRCS_PATH = ./srcs/
-
-SRCS = $(SRCS_PATH)main.c $(SRCS_PATH)philo_atoi.c $(SRCS_PATH)free.c \
-		$(SRCS_PATH)error_message.c $(SRCS_PATH)execute_mult_thread.c $(SRCS_PATH)print_time.c
-OBJS = $(SRCS:.c=.o)
+CC			=	cc
+CFLAGS		=	-Wall -Wextra -Werror
+NAME		=	philo
+INCLUDES	=	includes
+SRCS_FILES	=	main.c philo_atoi.c free.c error_message.c \
+				execute_mult_thread.c print_time.c
+SRCS		=	$(addprefix ./srcs/, $(SRCS_FILES))
+OBJS		=	$(SRCS:.c=.o)
 
 all : $(NAME)
 
