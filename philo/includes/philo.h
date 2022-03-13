@@ -10,40 +10,43 @@
 # include "pthread.h"
 # include "limits.h"
 
-typedef struct s_mutex
+typedef struct s_philo
 {
-	pthread_mutex_t	mutex;
-	pthread_t		thread;
-	int				fork_count;
-}	t_mutex;
+	bool	has_fork_right;
+	bool	has_fork_left;
+	size_t 	eat_count;
+	size_t	philo_number;
+
+	pthread_t	thread_philo;
+}	t_philo;
+
+typedef struct s_monitor
+{
+	size_t	monitor_number;
+
+	pthread_t	thread_monitor;
+}	t_monitor;
 
 typedef struct s_info
 {
 	int		argc;
-	char 	**argv;
-	int		num_of_philosophers;
-	int		time_to_die;
-	int		time_to_eat;
-	int		time_to_sleep;
-	t_mutex	*array;
-	int		current_index;
-	bool	*fork_status;
+	char	**argv;
+	size_t	number_of_philo;
+	size_t	time_to_die;
+	size_t	time_to_eat;
+	size_t	time_to_sleep;
+	size_t	number_of_min_eat;
+
+	t_philo			*philo;
+	t_monitor		*monitor;
+	pthread_mutex_t	*shared_mutex;
+	pthread_mutex_t	**forks_mutex;
 }	t_info;
 
-//philo_atoi.c
-int	philo_atoi(const char *str, t_info *info);
-int	ft_isdigit(int c);
+//init.c
+void	init_structure(t_info *info, int argc, char **argv);
 
-//execute_mult_thread.c
-void	execute_mult_thread(t_info *info);
-
-//print_time.c
-size_t	print_time(t_info *info);
-
-//error_message.c
-void	error_message(t_info *info);
-
-//free.c
-void	free_element(t_info *info);
+//ft_atoi.c
+int		ft_atoi(const char *str);
 
 #endif
