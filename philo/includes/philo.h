@@ -49,4 +49,7 @@ void	init_structure(t_info *info, int argc, char **argv);
 //ft_atoi.c
 int		ft_atoi(const char *str);
 
+//xmalloc.c
+void	*xmalloc(size_t size);
+
 #endif

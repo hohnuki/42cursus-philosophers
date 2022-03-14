@@ -1,5 +1,10 @@
 #include "../includes/philo.h"
 
+static int	init_philos(t_info *info)
+{
+
+}
+
 void	init_structure(t_info *info, int argc, char **argv)
 {
 	info->argc = argc;
@@ -12,4 +17,6 @@ void	init_structure(t_info *info, int argc, char **argv)
 	if (argc == 6)
 		info->number_of_min_eat = ft_atoi(argv[5]);
 	pthread_mutex_init(info->shared_mutex, NULL);
+
+	init_philos(info);
 }
