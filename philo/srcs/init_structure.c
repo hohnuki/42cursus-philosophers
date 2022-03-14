@@ -12,6 +12,7 @@ static void	init_philos(t_info *info)
 		info->philos[i].has_fork_left = false;
 		info->philos[i].eat_count = 0;
 		info->philos[i].philo_number = i + 1;
+		info->philos[i].info = info;
 		i++;
 	}
 }
@@ -25,6 +26,7 @@ static void	init_monitors(t_info *info)
 	while (i < info->number_of_philo)
 	{
 		info->monitors[i].monitor_number = i + 1;
+		info->monitors[i].info = info;
 		i++;
 	}
 }

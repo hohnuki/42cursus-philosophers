@@ -10,6 +10,8 @@
 # include "pthread.h"
 # include "limits.h"
 
+typedef struct s_info t_info;
+
 typedef struct s_philo
 {
 	bool	has_fork_right;
@@ -18,6 +20,7 @@ typedef struct s_philo
 	size_t	philo_number;
 
 	pthread_t	thread_philo;
+	t_info		*info;
 }	t_philo;
 
 typedef struct s_monitor
@@ -25,6 +28,7 @@ typedef struct s_monitor
 	size_t	monitor_number;
 
 	pthread_t	thread_monitor;
+	t_info		*info;
 }	t_monitor;
 
 typedef struct s_info
@@ -43,6 +47,17 @@ typedef struct s_info
 	pthread_mutex_t	**forks_mutex;
 }	t_info;
 
+//get_fork.c
+void	get_fork(t_philo *philo);
+
+//action.c
+void	eat_philo(t_philo *philo);
+void	think_philo(t_philo *philo);
+void	sleep_philo(t_philo *philo);
+
+//release_fork.c
+void	release_fork(t_philo *philo);
+
 //init.c
 void	init_structure(t_info *info, int argc, char **argv);
 
@@ -60,11 +75,15 @@ void	create_thread(t_info *info);
 
 //philo_func.c
 void	*philo_func(void *ptr);
+void	time_keeper(t_info *info, size_t time);
 
 //monitor_func.c
 void	*monitor_func(void *ptr);
 
 //get_time.c
 size_t	get_time(t_info *info);
+
+//print_action.c
+void	print_action(t_philo *philo, char *message);
 
 #endif
