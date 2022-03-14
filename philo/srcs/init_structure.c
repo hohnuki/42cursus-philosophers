@@ -54,7 +54,9 @@ void	init_structure(t_info *info, int argc, char **argv)
 	info->time_to_sleep = ft_atoi(argv[4]);
 	if (argc == 6)
 		info->number_of_min_eat = ft_atoi(argv[5]);
-	pthread_mutex_init(info->shared_mutex, NULL);
+	else
+		info->number_of_min_eat = 0;
+	pthread_mutex_init(&(info->shared_mutex), NULL);
 
 	init_philos(info);
 	init_monitors(info);

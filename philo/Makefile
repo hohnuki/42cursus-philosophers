@@ -2,8 +2,9 @@ CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror
 NAME		=	philo
 INCLUDES	=	includes
-SRCS_FILES	=	main.c philo_atoi.c free.c error_message.c \
-				execute_mult_thread.c print_time.c
+SRCS_FILES	=	main.c ft_atoi.c free_all_elem.c create_thread.c init_structure.c \
+				monitor_func.c philo_func.c xmalloc.c get_time.c
+
 SRCS		=	$(addprefix ./srcs/, $(SRCS_FILES))
 OBJS		=	$(SRCS:.c=.o)
 

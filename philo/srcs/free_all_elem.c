@@ -21,4 +21,5 @@ void	free_all_elem(t_info *info)
 		free (info->monitors);
 	if (info->forks_mutex != NULL)
 		free_double_array((void **)info->forks_mutex);
+	exit(1);
 }
