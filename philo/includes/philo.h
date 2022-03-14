@@ -18,6 +18,7 @@ typedef struct s_philo
 	bool	has_fork_left;
 	size_t 	eat_count;
 	size_t	philo_number;
+	size_t	last_eat_time;
 
 	pthread_t	thread_philo;
 	t_info		*info;

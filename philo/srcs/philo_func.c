@@ -19,6 +19,11 @@ void	*philo_func(void *ptr)
 	t_philo	*philo;
 
 	philo = (t_philo *)ptr;
+	pthread_mutex_lock(&(philo->info->shared_mutex));
+	philo->last_eat_time = get_time(philo->info);
+	pthread_mutex_unlock(&(philo->info->shared_mutex));
+	if (philo->philo_number % 2 == 1)
+		usleep(200);
 	while (1)
 	{
 		get_fork(philo);
