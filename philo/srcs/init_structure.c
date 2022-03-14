@@ -12,8 +12,6 @@ static void	init_philos(t_info *info)
 		info->philos[i].has_fork_left = false;
 		info->philos[i].eat_count = 0;
 		info->philos[i].philo_number = i + 1;
-
-		pthread_create(info->philos[i].thread_philo, NULL, philo_func, info);
 		i++;
 	}
 }
@@ -27,8 +25,20 @@ static void	init_monitors(t_info *info)
 	while (i < info->number_of_philo)
 	{
 		info->monitors[i].monitor_number = i + 1;
+		i++;
+	}
+}
 
-		pthread_create(info->monitors[i].monitor_number, NULL, monitor_func, info);
+static void	init_forks(t_info *info)
+{
+	size_t	i;
+
+	info->forks_mutex = xmalloc(info, sizeof(pthread_mutex_t *) * info->number_of_philo);
+	i = 0;
+	while (i < info->number_of_philo)
+	{
+		info->forks_mutex[i] = xmalloc(info, sizeof(pthread_mutex_t));
+		pthread_mutex_init(info->forks_mutex[i], NULL);
 		i++;
 	}
 }
@@ -48,4 +58,5 @@ void	init_structure(t_info *info, int argc, char **argv)
 
 	init_philos(info);
 	init_monitors(info);
+	init_forks(info);
 }
