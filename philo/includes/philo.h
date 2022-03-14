@@ -17,7 +17,7 @@ typedef struct s_philo
 	size_t 	eat_count;
 	size_t	philo_number;
 
-	pthread_t	thread_philo;
+	pthread_t	*thread_philo;
 }	t_philo;
 
 typedef struct s_monitor
@@ -37,8 +37,8 @@ typedef struct s_info
 	size_t	time_to_sleep;
 	size_t	number_of_min_eat;
 
-	t_philo			*philo;
-	t_monitor		*monitor;
+	t_philo			*philos;
+	t_monitor		*monitors;
 	pthread_mutex_t	*shared_mutex;
 	pthread_mutex_t	**forks_mutex;
 }	t_info;
@@ -50,6 +50,9 @@ void	init_structure(t_info *info, int argc, char **argv);
 int		ft_atoi(const char *str);
 
 //xmalloc.c
-void	*xmalloc(size_t size);
+void	*xmalloc(t_info *info, size_t size);
+
+//free_all_elem.c
+void	free_all_elem(t_info *info);
 
 #endif
