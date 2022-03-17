@@ -45,7 +45,7 @@ typedef struct s_info
 	t_philo			**philos;
 	t_monitor		**monitors;
 	pthread_mutex_t	shared_mutex;
-	pthread_mutex_t	**forks_mutex;
+	pthread_mutex_t	*forks_mutex;
 }	t_info;
 
 //get_fork.c

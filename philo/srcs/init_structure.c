@@ -1,4 +1,5 @@
 #include "../includes/philo.h"
+#include "string.h"
 
 static void	init_philos(t_info *info)
 {
@@ -37,12 +38,11 @@ static void	init_forks(t_info *info)
 {
 	size_t	i;
 
-	info->forks_mutex = xmalloc(info, sizeof(pthread_mutex_t *) * info->number_of_philo);
+	info->forks_mutex = xmalloc(info, sizeof(pthread_mutex_t) * info->number_of_philo);
 	i = 0;
 	while (i < info->number_of_philo)
 	{
-		info->forks_mutex[i] = xmalloc(info, sizeof(pthread_mutex_t));
-		pthread_mutex_init(info->forks_mutex[i], NULL);
+		pthread_mutex_init(&(info->forks_mutex[i]), NULL);
 		i++;
 	}
 }
