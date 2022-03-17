@@ -6,11 +6,19 @@ void	time_keeper(t_info *info, size_t time)
 	size_t	passed_time;
 
 	start_time = get_time(info);
+	printf("\x1b[36m[start_time = %zu]\n\033[m", start_time);
 	while (1)
 	{
 		passed_time = get_time(info);
+		printf("\x1b[36m[%zu]\n\033[m", passed_time);
 		if (passed_time - start_time >= time)
+		{
+			printf("\x1b[36m[passed_time = %zu]\n\033[m", passed_time);
 			return ;
+		}
+		printf("\x1b[36m[aaaaaaaa]\n\033[m");
+		usleep(500);
+		printf("\x1b[36m[bbbbbbbb]\n\033[m");
 	}
 }
 
@@ -27,7 +35,7 @@ void	*philo_func(void *ptr)
 		usleep(200);
 	while (1)
 	{
-		get_fork(philo);
+		get_fork(philo->info, philo->philo_number);
 		eat_philo(philo);
 		think_philo(philo);
 		release_fork(philo);

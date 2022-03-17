@@ -8,7 +8,7 @@ void	release_fork(t_philo *philo)
 	printf("\x1b[36m[%s philo_num %zu]\n\033[m", "release_fork in", philo->philo_number);
 	if (philo->has_fork_left == true && philo->has_fork_right == true)
 	{
-		pthread_mutex_unlock(philo->info->forks_mutex[fork_index]);
+		pthread_mutex_unlock(&(philo->info->forks_mutex[fork_index]));
 		philo->has_fork_left = false;
 		philo->has_fork_right = false;
 		sleep_philo(philo);

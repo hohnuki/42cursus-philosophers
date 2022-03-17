@@ -49,7 +49,7 @@ typedef struct s_info
 }	t_info;
 
 //get_fork.c
-void	get_fork(t_philo *philo);
+void	get_fork(t_info *info, size_t philo_number);
 
 //action.c
 void	eat_philo(t_philo *philo);
