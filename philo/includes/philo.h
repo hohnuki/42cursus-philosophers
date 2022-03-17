@@ -42,8 +42,8 @@ typedef struct s_info
 	size_t	time_to_sleep;
 	size_t	number_of_min_eat;
 
-	t_philo			*philos;
-	t_monitor		*monitors;
+	t_philo			**philos;
+	t_monitor		**monitors;
 	pthread_mutex_t	shared_mutex;
 	pthread_mutex_t	**forks_mutex;
 }	t_info;
@@ -59,7 +59,7 @@ void	sleep_philo(t_philo *philo);
 //release_fork.c
 void	release_fork(t_philo *philo);
 
-//init.c
+//init_structure.c
 void	init_structure(t_info *info, int argc, char **argv);
 
 //ft_atoi.c

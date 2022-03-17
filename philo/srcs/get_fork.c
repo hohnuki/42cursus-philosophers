@@ -3,10 +3,11 @@
 static void	get_right_fork(t_philo *philo)
 {
 	size_t	fork_index;
-
+	printf("\x1b[36m[%p]\n\033[m", &philo->info->time_to_eat);
 	printf("\x1b[36m[%zu philo_num %zu]\n\033[m", philo->info->time_to_eat, philo->philo_number);
 	fork_index = philo->philo_number - 1;
 	pthread_mutex_lock(philo->info->forks_mutex[fork_index]);
+	printf("\x1b[36m[aaaaaaaa]\n\033[m");
 	philo->has_fork_right = true;
 	pthread_mutex_unlock(philo->info->forks_mutex[fork_index]);
 }

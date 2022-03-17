@@ -19,6 +19,7 @@ void	*philo_func(void *ptr)
 	t_philo	*philo;
 
 	philo = (t_philo *)ptr;
+	printf("\x1b[36m[aaaaaa %zu philo_num %zu]\n\033[m", philo->info->time_to_eat, philo->philo_number);
 	pthread_mutex_lock(&(philo->info->shared_mutex));
 	philo->last_eat_time = get_time(philo->info);
 	pthread_mutex_unlock(&(philo->info->shared_mutex));

@@ -4,15 +4,16 @@ static void	init_philos(t_info *info)
 {
 	size_t	i;
 
-	info->philos = xmalloc(info, sizeof(t_philo) * info->number_of_philo);
+	info->philos = xmalloc(info, sizeof(t_philo *) * info->number_of_philo);
 	i = 0;
 	while (i < info->number_of_philo)
 	{
-		info->philos[i].has_fork_right = false;
-		info->philos[i].has_fork_left = false;
-		info->philos[i].eat_count = 0;
-		info->philos[i].philo_number = i + 1;
-		info->philos[i].info = info;
+		info->philos[i] = xmalloc(info, sizeof(t_philo));
+		info->philos[i]->has_fork_right = false;
+		info->philos[i]->has_fork_left = false;
+		info->philos[i]->eat_count = 0;
+		info->philos[i]->philo_number = i + 1;
+		info->philos[i]->info = info;
 		i++;
 	}
 }
@@ -21,12 +22,13 @@ static void	init_monitors(t_info *info)
 {
 	size_t	i;
 
-	info->monitors = xmalloc(info, sizeof(t_monitor) * info->number_of_philo);
+	info->monitors = xmalloc(info, sizeof(t_monitor *) * info->number_of_philo);
 	i = 0;
 	while (i < info->number_of_philo)
 	{
-		info->monitors[i].monitor_number = i + 1;
-		info->monitors[i].info = info;
+		info->monitors[i] = xmalloc(info, sizeof(t_monitor));
+		info->monitors[i]->monitor_number = i + 1;
+		info->monitors[i]->info = info;
 		i++;
 	}
 }
