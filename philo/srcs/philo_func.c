@@ -6,7 +6,7 @@
 /*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 11:40:34 by ohnukihirok       #+#    #+#             */
-/*   Updated: 2022/03/18 12:11:54 by ohnukihirok      ###   ########.fr       */
+/*   Updated: 2022/03/18 14:01:32 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,13 @@ void	time_keeper(t_info *info, size_t time)
 	while (1)
 	{
 		passed_time = get_time(info);
-		printf("\x1b[36m[%zu]\n\033[m", passed_time);
+		// printf("\x1b[36m[passed_time = %zu]\n\033[m", passed_time);
 		if (passed_time - start_time >= time)
 		{
-			printf("\x1b[36m[passed_time = %zu]\n\033[m", passed_time);
+			printf("\x1b[36m[%s]\033[m\n", "timekeeper finished");
 			return ;
 		}
-		printf("\x1b[36m[aaaaaaaa]\n\033[m");
-		printf("\x1b[36m[bbbbbbbb]\n\033[m");
+		usleep(100);
 	}
 }
 
@@ -47,6 +46,7 @@ void	*philo_func(void *ptr)
 		usleep(200);
 	while (1)
 	{
+		printf("\x1b[36m[%zu %s]\033[m\n", philo->philo_number,"is starting");
 		get_fork(philo->info, philo->philo_number);
 		eat_philo(philo);
 		think_philo(philo);

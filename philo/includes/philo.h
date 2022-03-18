@@ -74,6 +74,9 @@ void	free_all_elem(t_info *info);
 //create_thread.c
 void	create_thread(t_info *info);
 
+//join_thread.c
+void	join_thread(t_info *info);
+
 //philo_func.c
 void	*philo_func(void *ptr);
 void	time_keeper(t_info *info, size_t time);
