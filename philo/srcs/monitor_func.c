@@ -6,7 +6,7 @@
 /*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 11:40:32 by ohnukihirok       #+#    #+#             */
-/*   Updated: 2022/03/18 18:33:48 by ohnukihirok      ###   ########.fr       */
+/*   Updated: 2022/03/18 18:41:18 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ void	*monitor_func(void *ptr)
 	monitors = (t_monitor *)ptr;
 	while (1)
 	{
+		usleep(1000);
 		if (die_monitor(monitors->philo) == true)
 		{
 			pthread_mutex_unlock(&(monitors->info->shared_mutex));
 			print_action(monitors->philo, "died");
 			exit(1);
 		}
-		usleep(1000);
 	}
 	return (NULL);
 }

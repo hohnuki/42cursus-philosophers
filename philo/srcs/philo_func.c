@@ -6,7 +6,7 @@
 /*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 11:40:34 by ohnukihirok       #+#    #+#             */
-/*   Updated: 2022/03/18 15:33:37 by ohnukihirok      ###   ########.fr       */
+/*   Updated: 2022/03/18 18:40:09 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,11 @@ void	time_keeper(t_info *info, size_t time)
 	size_t	passed_time;
 
 	start_time = get_time(info);
-	printf("\x1b[36m[start_time = %zu]\n\033[m", start_time);
 	while (1)
 	{
 		passed_time = get_time(info);
 		if (passed_time - start_time >= time)
-		{
-			printf("\x1b[36m[passed_time = %zu]\033[m\n", passed_time);
 			return ;
-		}
 		usleep(100);
 	}
 }
