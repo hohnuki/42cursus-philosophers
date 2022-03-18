@@ -30,6 +30,7 @@ typedef struct s_monitor
 
 	pthread_t	thread_monitor;
 	t_info		*info;
+	t_philo		*philo;
 }	t_monitor;
 
 typedef struct s_info

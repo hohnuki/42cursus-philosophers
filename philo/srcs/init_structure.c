@@ -6,7 +6,7 @@
 /*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 11:40:29 by ohnukihirok       #+#    #+#             */
-/*   Updated: 2022/03/18 11:56:35 by ohnukihirok      ###   ########.fr       */
+/*   Updated: 2022/03/18 18:11:53 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ static void	init_monitors(t_info *info)
 		info->monitors[i] = xmalloc(info, sizeof(t_monitor));
 		info->monitors[i]->monitor_number = i + 1;
 		info->monitors[i]->info = info;
+		info->monitors[i]->philo = info->philos[i];
 		i++;
 	}
 }

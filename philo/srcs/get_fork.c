@@ -6,7 +6,7 @@
 /*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 11:40:26 by ohnukihirok       #+#    #+#             */
-/*   Updated: 2022/03/18 15:45:33 by ohnukihirok      ###   ########.fr       */
+/*   Updated: 2022/03/18 17:15:17 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	get_fork(t_info *info, size_t philo_number)
 	pthread_mutex_lock(&(info->shared_mutex));
 	printf("\x1b[36m[%s philo_num %zu]\n\033[m", "fork_lock", philo_number);
 	pthread_mutex_unlock(&(info->shared_mutex));
-	
+
 	if (info->philos[philo_number - 1]->has_fork_right == false)
 		get_right_fork(info, philo_number);
 	if (info->philos[philo_number - 1]->has_fork_left == false)
