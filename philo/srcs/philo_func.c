@@ -6,7 +6,7 @@
 /*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 11:40:34 by ohnukihirok       #+#    #+#             */
-/*   Updated: 2022/03/18 14:01:32 by ohnukihirok      ###   ########.fr       */
+/*   Updated: 2022/03/18 15:33:37 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,13 @@ void	time_keeper(t_info *info, size_t time)
 	size_t	passed_time;
 
 	start_time = get_time(info);
-	printf("\x1b[36m[time = %zu]\033[m\n", time);
 	printf("\x1b[36m[start_time = %zu]\n\033[m", start_time);
 	while (1)
 	{
 		passed_time = get_time(info);
-		// printf("\x1b[36m[passed_time = %zu]\n\033[m", passed_time);
 		if (passed_time - start_time >= time)
 		{
-			printf("\x1b[36m[%s]\033[m\n", "timekeeper finished");
+			printf("\x1b[36m[passed_time = %zu]\033[m\n", passed_time);
 			return ;
 		}
 		usleep(100);
@@ -46,11 +44,11 @@ void	*philo_func(void *ptr)
 		usleep(200);
 	while (1)
 	{
-		printf("\x1b[36m[%zu %s]\033[m\n", philo->philo_number,"is starting");
 		get_fork(philo->info, philo->philo_number);
 		eat_philo(philo);
-		think_philo(philo);
+		sleep_philo(philo);
 		release_fork(philo);
+		think_philo(philo);
 	}
 	return (NULL);
 }
