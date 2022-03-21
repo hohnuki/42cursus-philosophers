@@ -91,4 +91,7 @@ size_t	get_time(t_info *info);
 //print_action.c
 void	print_action(t_philo *philo, char *message);
 
+//utils.c
+void	ft_putendl_fd(char *s, int fd);
+
 #endif

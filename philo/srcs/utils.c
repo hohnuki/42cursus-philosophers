@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 11:39:14 by ohnukihirok       #+#    #+#             */
-/*   Updated: 2022/03/21 11:24:25 by ohnukihirok      ###   ########.fr       */
+/*   Created: 2022/03/21 11:20:12 by ohnukihirok       #+#    #+#             */
+/*   Updated: 2022/03/21 11:22:43 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-int	main(int argc, char **argv)
+static void	ft_putstr_fd(char *s, int fd)
 {
-	t_info	*info;
+	size_t	i;
 
-	if (argc < 5 || 6 < argc)
-		ft_putendl_fd("Error\n", STDERR_FILENO);
-	info = xmalloc(info, sizeof(t_info));
-	init_structure(info, argc, argv);
-	create_thread(info);
-	join_thread(info);
+	if (s == NULL)
+		return ;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		write(fd, &s[i], STDOUT_FILENO);
+		i++;
+	}
+}
+
+void	ft_putendl_fd(char *s, int fd)
+{
+	ft_putstr_fd(s, fd);
+	write (fd, "\n", STDOUT_FILENO);
 }
