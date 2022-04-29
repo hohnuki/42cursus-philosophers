@@ -6,7 +6,7 @@
 /*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 11:40:39 by ohnukihirok       #+#    #+#             */
-/*   Updated: 2022/03/18 15:14:06 by ohnukihirok      ###   ########.fr       */
+/*   Updated: 2022/04/29 21:51:35 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	release_left_fork(t_philo *philo)
 
 void	release_fork(t_philo *philo)
 {
-	printf("\x1b[36m[%s philo_num %zu]\n\033[m", "release_fork in", philo->philo_number);
+	// printf("\x1b[36m[%s philo_num %zu]\n\033[m", "release_fork in", philo->philo_number);
 	if (philo->has_fork_left == true && philo->has_fork_right == true)
 	{
 		release_left_fork(philo);
