@@ -6,7 +6,7 @@
 /*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 11:40:20 by ohnukihirok       #+#    #+#             */
-/*   Updated: 2022/03/21 11:35:01 by ohnukihirok      ###   ########.fr       */
+/*   Updated: 2022/04/29 19:11:48 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ static void	free_double_array(void **array)
 void	free_all_elem(t_info *info)
 {
 	if (info->philos != NULL)
-		free_double_array(info->philos);
+		free_double_array((void **)info->philos);
 	if (info->monitors != NULL)
-		free_double_array(info->monitors);
+		free_double_array((void **)info->monitors);
 	if (info->forks_mutex != NULL)
 		free(info->forks_mutex);
 	exit(1);
