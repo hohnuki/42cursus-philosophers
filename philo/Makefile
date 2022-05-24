@@ -1,26 +1,25 @@
-CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror
-NAME		=	philo
-INCLUDES	=	includes
-SRCS_FILES	=	main.c ft_atoi.c free_all_elem.c create_thread.c init_structure.c \
-				monitor_func.c philo_func.c xmalloc.c get_time.c print_action.c \
-				release_fork.c action.c get_fork.c join_thread.c utils.c
+NAME = philo
 
-SRCS		=	$(addprefix ./srcs/, $(SRCS_FILES))
-OBJS		=	$(SRCS:.c=.o)
+SRCS_FILES = fork.c init.c main.c monitor.c philo_action.c print_action.c thread.c time.c utils.c eat.c
+SRCS = $(addprefix ./src/, $(SRCS_FILES))
+OBJS = ${SRCS:.c=.o}
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -pthread -fsanitize=thread
+#CFLAGS = -Wall -Wextra -Werror -pthread
 
-all : $(NAME)
+RM = rm -rf
 
-$(NAME) : $(OBJS)
-		$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+all: ${NAME}
 
-.c.o :
-		$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
+${NAME}: ${OBJS}
+	${CC} ${CFLAGS} ${OBJS} $(FLAG) -o ${NAME}
 
-clean :
-		$(RM) $(OBJS)
+clean:
+	${RM} ${OBJS}
 
-fclean : clean
-		$(RM) $(NAME) $(SRCS_OBJS)
+fclean: clean
+	${RM} ${NAME}
 
-re : fclean all
+re: fclean all
+
+.PHONY: all clean fclean re
