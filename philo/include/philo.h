@@ -72,7 +72,7 @@ void		*philo_routine(void *ptr);
 int			philo_eat(t_philo *philo);
 
 //time.c
-int			time_keeper_philo(t_philo *philo, size_t time);
+int			time_keeper(t_philo *philo, size_t time);
 size_t		get_time(void);
 
 //monitor.c
@@ -81,7 +81,7 @@ void		terminate_program(t_data *data);
 
 //print_action.c
 void		print_help(void);
-size_t		get_time_philo(t_philo *philo);
+size_t		get_time_zero_start(t_philo *philo);
 int			print_action(t_philo *philo, char *message);
 
 //utils.c

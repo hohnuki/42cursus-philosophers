@@ -11,7 +11,7 @@ int	philo_sleep(t_philo *philo)
 	pthread_mutex_unlock(&philo->data->shared_mutex);
 	if (print_action(philo, "is sleeping") == 1)
 		return (1);
-	if (time_keeper_philo(philo, philo->data->time_to_sleep) == 1)
+	if (time_keeper(philo, philo->data->time_to_sleep) == 1)
 		return (1);
 	return (0);
 }

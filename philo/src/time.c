@@ -1,6 +1,6 @@
 #include "../include/philo.h"
 
-size_t	get_time_philo(t_philo *philo)
+size_t	get_time_zero_start(t_philo *philo)
 {
 	struct timeval	tv;
 	size_t			time;
@@ -20,15 +20,15 @@ size_t	get_time(void)
 	return (time);
 }
 
-int	time_keeper_philo(t_philo *philo, size_t time)
+int	time_keeper(t_philo *philo, size_t time)
 {
 	size_t	start_time;
 	size_t	passed_time;
 
-	start_time = get_time_philo(philo);
+	start_time = get_time_zero_start(philo);
 	while (1)
 	{
-		passed_time = get_time_philo(philo);
+		passed_time = get_time_zero_start(philo);
 		if (passed_time - start_time >= time)
 			return (0);
 		pthread_mutex_lock(&philo->data->shared_mutex);

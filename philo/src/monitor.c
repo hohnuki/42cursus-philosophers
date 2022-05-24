@@ -7,7 +7,7 @@ static void	monitor_action(t_monitor *monitor)
 	i = 0;
 	while (monitor->data->is_finished != 1)
 	{
-		if (get_time_philo(monitor->philo) - monitor->philo-> \
+		if (get_time_zero_start(monitor->philo) - monitor->philo-> \
 		last_eat_time > monitor->data->time_to_die)
 		{
 			print_action(monitor->philo, "died");
@@ -31,7 +31,7 @@ void	*monitor_routine(void *ptr)
 	t_monitor	*monitor;
 
 	monitor = (t_monitor *)ptr;
-	time_keeper_philo(monitor->philo, monitor->data->time_to_die);
+	time_keeper(monitor->philo, monitor->data->time_to_die);
 	monitor_action(monitor);
 	return (NULL);
 }

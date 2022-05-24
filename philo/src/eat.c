@@ -15,8 +15,8 @@ static int	philo_eat_core(t_philo *philo)
 	{
 		if (print_action(philo, "is eating") == 1)
 			return (1);
-		philo->last_eat_time = get_time_philo(philo);
-		if (time_keeper_philo(philo, philo->data->time_to_eat) == 1)
+		philo->last_eat_time = get_time_zero_start(philo);
+		if (time_keeper(philo, philo->data->time_to_eat) == 1)
 			return (1);
 		if (philo->philo_number != philo->data->number_of_philo)
 		{
