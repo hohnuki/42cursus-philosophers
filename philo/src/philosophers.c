@@ -2,9 +2,8 @@
 
 int	philo_sleep(t_philo *philo)
 {
-	if (print_action(philo, "is sleeping") == 1)
-		return (1);
-	if (time_keeper(philo, philo->data->time_to_sleep) == 1)
+	if (print_action(philo, "is sleeping") == 1 \
+		|| time_keeper(philo, philo->data->time_to_sleep) == 1)
 		return (1);
 	return (0);
 }
