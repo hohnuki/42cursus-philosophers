@@ -21,7 +21,9 @@ int	time_keeper(t_philo *philo, size_t time)
 	size_t	start_time;
 	size_t	passed_time;
 
+	pthread_mutex_lock(&philo->data->shared_mutex);
 	start_time = get_time_zero_start(philo);
+	pthread_mutex_unlock(&philo->data->shared_mutex);
 	while (1)
 	{
 		passed_time = get_time_zero_start(philo);
