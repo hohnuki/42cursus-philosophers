@@ -77,7 +77,6 @@ size_t		get_time(void);
 
 //monitor.c
 void		*monitor_routine(void *ptr);
-void		terminate_program(t_data *data);
 
 //print_action.c
 void		print_help(void);

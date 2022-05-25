@@ -1,12 +1,5 @@
 #include "../include/philo.h"
 
-void	terminate_program(t_data *data)
-{
-	pthread_mutex_lock(&data->shared_mutex);
-	data->is_finished = 1;
-	pthread_mutex_unlock(&(data->shared_mutex));
-}
-
 void	destroy_mutex(t_data *data)
 {
 	int	i;

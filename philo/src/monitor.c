@@ -7,21 +7,21 @@ static void	monitor_action(t_monitor *monitor)
 	i = 0;
 	while (monitor->data->is_finished != 1)
 	{
-		if (get_time_zero_start(monitor->philo) - monitor->philo-> \
-		last_eat_time > monitor->data->time_to_die)
+		if (get_time_zero_start(monitor->philo) - \
+			monitor->philo->last_eat_time > monitor->data->time_to_die)
 		{
 			print_action(monitor->philo, "died");
-			terminate_program(monitor->data);
+			monitor->data->is_finished = true;
 		}
 		if (monitor->philo->eat_count >= monitor->data->number_of_min_eat)
-			monitor->is_reached_min_eat = 1;
+			monitor->is_reached_min_eat = true;
 		while (i < monitor->data->number_of_philo && monitor->data->argc == 6)
 		{
-			if (monitor->data->monitors[i].is_reached_min_eat == 0)
+			if (monitor->data->monitors[i].is_reached_min_eat == false)
 				break ;
 			i++;
 			if (i == monitor->data->number_of_philo)
-				terminate_program(monitor->data);
+				monitor->data->is_finished = true;
 		}
 	}
 }
