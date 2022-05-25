@@ -2,13 +2,8 @@
 
 int	philo_sleep(t_philo *philo)
 {
-	pthread_mutex_lock(&philo->data->shared_mutex);
 	if (philo->data->is_finished == 1)
-	{
-		pthread_mutex_unlock(&philo->data->shared_mutex);
 		return (1);
-	}
-	pthread_mutex_unlock(&philo->data->shared_mutex);
 	if (print_action(philo, "is sleeping") == 1)
 		return (1);
 	if (time_keeper(philo, philo->data->time_to_sleep) == 1)
@@ -18,13 +13,8 @@ int	philo_sleep(t_philo *philo)
 
 int	philo_think(t_philo *philo)
 {
-	pthread_mutex_lock(&philo->data->shared_mutex);
 	if (philo->data->is_finished == 1)
-	{
-		pthread_mutex_unlock(&philo->data->shared_mutex);
 		return (1);
-	}
-	pthread_mutex_unlock(&philo->data->shared_mutex);
 	if (print_action(philo, "is thinking") == 1)
 		return (1);
 	return (0);

@@ -8,10 +8,8 @@ void	create_thread(t_data *data)
 	data->start_time = get_time();
 	while (i < data->number_of_philo)
 	{
-		pthread_create(&(data->philos[i].thread_philo), \
-						NULL, &philo_routine, &data->philos[i]);
-		pthread_create(&(data->monitors[i]).thread_monitor, \
-						NULL, &monitor_routine, &data->monitors[i]);
+		pthread_create(&(data->philos[i].thread_philo), NULL, &philo_routine, &data->philos[i]);
+		pthread_create(&(data->monitors[i]).thread_monitor, NULL, &monitor_routine, &data->monitors[i]);
 		i++;
 	}
 }

@@ -8,7 +8,7 @@ int	print_action(t_philo *philo, char *message)
 		pthread_mutex_unlock(&philo->data->shared_mutex);
 		return (1);
 	}
-	printf("%8zu: %d %s\n", get_time_zero_start(philo), philo->philo_number, message);
+	printf("%8zu %d %s\n", get_time_zero_start(philo), philo->philo_number, message);
 	pthread_mutex_unlock(&philo->data->shared_mutex);
 	return (0);
 }

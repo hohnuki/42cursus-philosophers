@@ -3,21 +3,17 @@
 size_t	get_time_zero_start(t_philo *philo)
 {
 	struct timeval	tv;
-	size_t			time;
 
 	gettimeofday(&tv, NULL);
-	time = (tv.tv_sec * 1000) + (tv.tv_usec / 1000) - philo->data->start_time;
-	return (time);
+	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000) - philo->data->start_time);
 }
 
 size_t	get_time(void)
 {
 	struct timeval	tv;
-	size_t			time;
 
 	gettimeofday(&tv, NULL);
-	time = (tv.tv_sec * 1000) + (tv.tv_usec / 1000);
-	return (time);
+	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
 }
 
 int	time_keeper(t_philo *philo, size_t time)
