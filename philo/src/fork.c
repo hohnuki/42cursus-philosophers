@@ -55,8 +55,6 @@ static int	pickup_right(t_philo *philo)
 
 int	pickup_fork(t_philo *philo)
 {
-	if (philo->data->is_finished == 1)
-		return (1);
 	if (pickup_right(philo) == 1)
 		return (1);
 	if (pickup_left(philo) == 1)
