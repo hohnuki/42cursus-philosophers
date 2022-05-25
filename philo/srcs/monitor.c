@@ -2,9 +2,10 @@
 
 static void	monitor_action(t_monitor *monitor)
 {
-	int	i;
-	int	philo_index;
-	int	eat_count;
+	int		i;
+	int		philo_index;
+	int		eat_count;
+	size_t	last_eat_time;
 
 	i = 0;
 	eat_count = 0;
@@ -12,8 +13,11 @@ static void	monitor_action(t_monitor *monitor)
 		philo_index = 0;
 		while (philo_index < monitor->data->number_of_philo)
 		{
+			pthread_mutex_lock(&monitor->data->shared_mutex);
+			last_eat_time = monitor->data->philos[philo_index].last_eat_time;
+			pthread_mutex_unlock(&monitor->data->shared_mutex);
 			if (get_time_zero_start(&monitor->data->philos[philo_index]) - \
-				monitor->data->philos[philo_index].last_eat_time > monitor->data->time_to_die)
+				last_eat_time > monitor->data->time_to_die)
 			{
 				print_action(&monitor->data->philos[philo_index], "died");
 				monitor->data->is_finished = true;
