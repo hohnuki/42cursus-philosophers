@@ -1,6 +1,6 @@
 NAME = philo
 
-SRCS_FILES = fork.c init.c main.c monitor.c philosophers.c print_action.c thread.c time.c utils.c eat.c
+SRCS_FILES = fork.c init.c main.c monitor.c philosophers.c print_action.c thread.c time.c utils.c
 SRCS = $(addprefix ./src/, $(SRCS_FILES))
 OBJS = ${SRCS:.c=.o}
 CC = gcc
