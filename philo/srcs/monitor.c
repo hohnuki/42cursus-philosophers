@@ -24,7 +24,7 @@ static void	monitor_action(t_monitor *monitor)
 				last_eat_time > monitor->data->time_to_die)
 			{
 				print_action(&monitor->data->philos[philo_index], "died");
-				pthread_mutex_unlock(&monitor->data->shared_mutex);
+				pthread_mutex_lock(&monitor->data->shared_mutex);
 				monitor->data->is_finished = true;
 				pthread_mutex_unlock(&monitor->data->shared_mutex);
 			}
