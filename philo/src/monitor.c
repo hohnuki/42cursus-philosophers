@@ -3,21 +3,26 @@
 static void	monitor_action(t_monitor *monitor)
 {
 	int	i;
+	int	philo_index;
 
 	i = 0;
-	while (monitor->data->is_finished != 1)
-	{
-		if (get_time_zero_start(monitor->philo) - \
-			monitor->philo->last_eat_time > monitor->data->time_to_die)
+	while (monitor->data->is_finished != true) {
+		philo_index = 0;
+		while (philo_index < monitor->data->number_of_philo)
 		{
-			print_action(monitor->philo, "died");
-			monitor->data->is_finished = true;
+			if (get_time_zero_start(&monitor->data->philos[philo_index]) - \
+				monitor->data->philos[philo_index].last_eat_time > monitor->data->time_to_die)
+			{
+				print_action(&monitor->data->philos[philo_index], "died");
+				monitor->data->is_finished = true;
+			}
+			if (monitor->data->philos[philo_index].eat_count >= monitor->data->number_of_min_eat)
+				monitor->data->philos[philo_index].is_reached_min_eat = true;
+			philo_index++;
 		}
-		if (monitor->philo->eat_count >= monitor->data->number_of_min_eat)
-			monitor->is_reached_min_eat = true;
 		while (i < monitor->data->number_of_philo && monitor->data->argc == 6)
 		{
-			if (monitor->data->monitors[i].is_reached_min_eat == false)
+			if (monitor->data->philos[i].is_reached_min_eat == false)
 				break ;
 			i++;
 			if (i == monitor->data->number_of_philo)
@@ -31,7 +36,7 @@ void	*monitor_routine(void *ptr)
 	t_monitor	*monitor;
 
 	monitor = (t_monitor *)ptr;
-	time_keeper(monitor->philo, monitor->data->time_to_die);
+	time_keeper(&monitor->data->philos[0], monitor->data->time_to_die);
 	monitor_action(monitor);
 	return (NULL);
 }

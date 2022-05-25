@@ -9,6 +9,7 @@ static bool	init_philos(t_data *data)
 	{
 		data->philos[i].has_fork_right = false;
 		data->philos[i].has_fork_left = false;
+		data->philos[i].is_reached_min_eat = false;
 		data->philos[i].eat_count = 0;
 		data->philos[i].philo_number = i + 1;
 		data->philos[i].data = data;
@@ -19,17 +20,7 @@ static bool	init_philos(t_data *data)
 
 static bool	init_monitors(t_data *data)
 {
-	int		i;
-
-	i = 0;
-	while (i < data->number_of_philo)
-	{
-		data->monitors[i].monitor_number = i + 1;
-		data->monitors[i].data = data;
-		data->monitors[i].philo = &data->philos[i];
-		data->monitors[i].is_reached_min_eat = 0;
-		i++;
-	}
+	data->monitor.data = data;
 	return (true);
 }
 

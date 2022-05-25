@@ -19,6 +19,7 @@ typedef struct s_philo
 {
 	bool		has_fork_right;
 	bool		has_fork_left;
+	bool		is_reached_min_eat;
 	int			philo_number;
 	size_t		eat_count;
 	size_t		last_eat_time;
@@ -29,11 +30,8 @@ typedef struct s_philo
 
 typedef struct s_monitor
 {
-	size_t		monitor_number;
-	bool		is_reached_min_eat;
 	pthread_t	thread_monitor;
 	t_data		*data;
-	t_philo		*philo;
 }	t_monitor;
 
 typedef struct s_data
@@ -46,7 +44,7 @@ typedef struct s_data
 	bool			is_finished;
 
 	t_philo			philos[256];
-	t_monitor		monitors[256];
+	t_monitor		monitor;
 	pthread_mutex_t	shared_mutex;
 	pthread_mutex_t	forks_mutex[256];
 	int				argc;
