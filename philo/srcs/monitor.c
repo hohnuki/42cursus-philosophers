@@ -42,7 +42,7 @@ static void	monitor_action(t_monitor *monitor)
 			i++;
 			if (i == monitor->data->number_of_philo)
 			{
-				pthread_mutex_unlock(&monitor->data->shared_mutex);
+				pthread_mutex_lock(&monitor->data->shared_mutex);
 				monitor->data->is_finished = true;
 				pthread_mutex_unlock(&monitor->data->shared_mutex);
 			}
