@@ -5,7 +5,7 @@ SRCS = $(addprefix ./srcs/, $(SRCS_FILES))
 OBJS = ${SRCS:.c=.o}
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -pthread -fsanitize=thread
-CFLAGS = -Wall -Wextra -Werror -pthread
+#CFLAGS = -Wall -Wextra -Werror -pthread
 
 RM = rm -rf
 

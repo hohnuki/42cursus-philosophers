@@ -9,7 +9,7 @@ int	philo_eat(t_philo *philo)
 		pthread_mutex_unlock(&philo->data->shared_mutex);
 		if (print_action(philo, "is eating") == 1 \
 			|| time_keeper(philo, philo->data->time_to_eat) == 1)
-		return (1);
+			return (1);
 		put_down_fork(philo);
 		pthread_mutex_lock(&philo->data->shared_mutex);
 		philo->eat_count++;
