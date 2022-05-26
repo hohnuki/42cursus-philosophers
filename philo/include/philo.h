@@ -23,7 +23,7 @@ typedef struct s_philo
 	int			philo_number;
 	size_t		eat_count;
 	size_t		last_eat_time;
-	size_t		start_time;
+
 	pthread_t	thread_philo;
 	t_data		*data;
 }	t_philo;
@@ -41,6 +41,7 @@ typedef struct s_data
 	size_t			time_to_eat;
 	size_t			time_to_sleep;
 	size_t			number_of_min_eat;
+	size_t			start_time;
 	bool			is_finished;
 
 	t_philo			philos[256];

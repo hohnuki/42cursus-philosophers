@@ -38,9 +38,6 @@ void	*philo_routine(void *ptr)
 	t_philo	*philo;
 
 	philo = (t_philo *)ptr;
-	pthread_mutex_lock(&philo->data->shared_mutex);
-	philo->start_time = get_time_zero_start(philo);
-	pthread_mutex_unlock(&philo->data->shared_mutex);
 	if ((philo->philo_number % 2) == 0)
 		usleep(200);
 	while (1)
