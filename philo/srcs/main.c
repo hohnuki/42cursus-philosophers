@@ -22,11 +22,12 @@ int	main(int argc, char **argv)
 		ft_isnum(argc - 1, argv) == false || digit_check(argc, argv) == false)
 	{
 		printf("Invalid input!\n");
-		return (0);
+		return (1);
 	}
 	if (init_data(&data, argc, argv) == false)
-		return (0);
+		return (1);
 	create_thread(&data);
 	join_thread(&data);
 	destroy_mutex(&data);
+	return (0);
 }
