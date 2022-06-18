@@ -19,7 +19,8 @@ int	main(int argc, char **argv)
 
 	memset(&data, 0, sizeof(t_data));
 	if ((argc != 5 && argc != 6) || \
-		validate_argv(argc - 1, argv) == false || digit_check(argc, argv) == false)
+		validate_argv(argc - 1, argv) == false || \
+		digit_check(argc, argv) == false)
 	{
 		printf("Invalid input!\n");
 		return (1);
