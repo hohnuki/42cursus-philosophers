@@ -10,8 +10,8 @@ static bool	init_philos(t_data *data)
 		data->philos[i].has_fork_right = false;
 		data->philos[i].has_fork_left = false;
 		data->philos[i].is_reached_min_eat = false;
-		data->philos[i].eat_count = 0;
 		data->philos[i].philo_number = i + 1;
+		data->philos[i].eat_count = 0;
 		data->philos[i].data = data;
 		i++;
 	}

@@ -1,6 +1,6 @@
 #include "../include/philo.h"
 
-int	philo_eat(t_philo *philo)
+static int	philo_eat(t_philo *philo)
 {
 	if (philo->has_fork_right == true && philo->has_fork_left == true)
 	{
@@ -18,7 +18,7 @@ int	philo_eat(t_philo *philo)
 	return (0);
 }
 
-int	philo_sleep(t_philo *philo)
+static int	philo_sleep(t_philo *philo)
 {
 	if (print_action(philo, "is sleeping") == 1 \
 		|| time_keeper(philo, philo->data->time_to_sleep) == 1)
@@ -26,7 +26,7 @@ int	philo_sleep(t_philo *philo)
 	return (0);
 }
 
-int	philo_think(t_philo *philo)
+static int	philo_think(t_philo *philo)
 {
 	if (print_action(philo, "is thinking") == 1)
 		return (1);

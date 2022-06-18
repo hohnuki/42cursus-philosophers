@@ -55,16 +55,16 @@ bool	digit_check(int argc, char **argv)
 	return (true);
 }
 
-bool	ft_isnum(int size, char **s)
+bool	validate_argv(int size, char **argv)
 {
 	int	i;
 
 	while (size > 0)
 	{
 		i = 0;
-		while (s[size][i] >= '0' && s[size][i] <= '9')
+		while (argv[size][i] >= '0' && argv[size][i] <= '9')
 			i++;
-		if (s[size][i] != '\0')
+		if (argv[size][i] != '\0')
 			return (false);
 		size--;
 	}

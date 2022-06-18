@@ -63,27 +63,21 @@ int			pickup_fork(t_philo *philo);
 void		put_down_fork(t_philo *philo);
 
 //philo_action.c
-int			philo_sleep(t_philo *philo);
-int			philo_think(t_philo *philo);
 void		*philo_routine(void *ptr);
-
-//eat.c
-int			philo_eat(t_philo *philo);
 
 //time.c
 int			time_keeper(t_philo *philo, size_t time);
+size_t		get_time_zero_start(t_philo *philo);
 size_t		get_time(void);
 
 //monitor.c
 void		*monitor_routine(void *ptr);
 
 //print_action.c
-void		print_help(void);
-size_t		get_time_zero_start(t_philo *philo);
 int			print_action(t_philo *philo, char *message);
 
 //utils.c
 long long	ft_atoll(const char *str);
 bool		digit_check(int argc, char **argv);
-bool		ft_isnum(int size, char **s);
+bool		validate_argv(int size, char **s);
 #endif
