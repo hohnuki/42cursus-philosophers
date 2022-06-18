@@ -25,8 +25,8 @@ static void	check_is_dead(t_monitor *monitor)
 	int		eat_count;
 	size_t	last_eat_time;
 
-	philo_index = 0;
-	while (philo_index < monitor->data->number_of_philo)
+	philo_index = -1;
+	while (++philo_index < monitor->data->number_of_philo)
 	{
 		pthread_mutex_lock(&monitor->data->shared_mutex);
 		last_eat_time = monitor->data->philos[philo_index].last_eat_time;
@@ -44,7 +44,6 @@ static void	check_is_dead(t_monitor *monitor)
 		pthread_mutex_unlock(&monitor->data->shared_mutex);
 		if (eat_count >= (int)monitor->data->number_of_min_eat)
 			monitor->data->philos[philo_index].is_reached_min_eat = true;
-		philo_index++;
 	}
 	check_eat_count(monitor);
 }
