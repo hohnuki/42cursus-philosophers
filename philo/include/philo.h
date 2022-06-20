@@ -80,4 +80,8 @@ int			print_action(t_philo *philo, char *message);
 long long	ft_atoll(const char *str);
 bool		digit_check(int argc, char **argv);
 bool		validate_argv(int size, char **s);
+
+//utils2.c
+int	ft_strcmp(const char *s1, const char *s2);
+
 #endif

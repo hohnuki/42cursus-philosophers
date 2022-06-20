@@ -66,6 +66,8 @@ bool	validate_argv(int size, char **argv)
 			i++;
 		if (argv[size][i] != '\0')
 			return (false);
+		if (ft_strcmp(argv[size], "") == 0)
+			return (false);
 		size--;
 	}
 	return (true);
